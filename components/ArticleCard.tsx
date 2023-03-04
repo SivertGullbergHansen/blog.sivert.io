@@ -18,7 +18,7 @@ export default function ArticleCard(post: Post) {
     <Link href={post.url}>
       {post.image && <Image width={512} height={512} alt='Post preview' className='object-cover w-full max-h-64' src={`/images/${post.image}`} />}
       <div className='p-4 flex flex-col gap-1'>
-      <h2 className="text-xl">
+      <h2 className="text-xl font-semibold">
           {post.title}
       </h2>
       <time dateTime={post.date} className="text-sm text-neutral-content">
