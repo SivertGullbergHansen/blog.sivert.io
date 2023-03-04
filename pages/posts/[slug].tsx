@@ -35,7 +35,7 @@ const PostLayout = ({ post }: { post: Post }) => {
       <Head>
         <title>{`Sivert's blog - ${post.title}`}</title>
       </Head>
-      <article className="max-w-prose mx-auto py-24 m-0 prose lg:prose-xl">
+      <article className="max-w-prose mx-auto py-12 m-0 prose lg:prose-xl">
         <StaggerWrapper>
         <MotionWrapper variants={ArticleContentVariant}>
       {post.image && <Image width={512} height={512} alt='Post preview' className='object-cover w-full max-h-96 rounded-xl' src={`/images/${post.image}`} />}
