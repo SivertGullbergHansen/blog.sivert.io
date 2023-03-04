@@ -6,6 +6,7 @@ import Image from "next/image";
 import MotionWrapper from "components/MotionWrapper";
 import { ArticleContentVariant } from "config/animations";
 import StaggerWrapper from "components/StaggerWrapper";
+import React, { Children, ReactElement } from "react";
 
 export async function getStaticPaths() {
   const paths: string[] = allPosts.map((post) => post.url);
@@ -27,7 +28,7 @@ export async function getStaticProps({ params }) {
 }
 
 const PostLayout = ({ post }: { post: Post }) => {
-  const MDXContent = useMDXComponent(post.body.code)
+  const MDXContent: Function = useMDXComponent(post.body.code)
   
   return (
     <>
@@ -43,7 +44,9 @@ const PostLayout = ({ post }: { post: Post }) => {
           </time>
         <h1>{post.title}</h1>
           </MotionWrapper>
-            <MDXContent components={{wrapper: ({components, ...rest}) => <MotionWrapper {...rest} variants={ArticleContentVariant} />}} />
+          {Children.map(MDXContent().props.children, (child, index) => {
+            return <MotionWrapper variants={ArticleContentVariant}>{child}</MotionWrapper>
+          })}
         </StaggerWrapper>
       </article>
     </>
