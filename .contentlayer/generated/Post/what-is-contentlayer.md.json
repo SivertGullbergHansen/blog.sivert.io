@@ -1,0 +1,18 @@
+{
+  "title": "What is Contentlayer?",
+  "date": "2022-02-22T00:00:00.000Z",
+  "body": {
+    "raw": "\n**Contentlayer makes working with content easy.** It is a content preprocessor that validates and transforms your content into type-safe JSON you can easily import into your application.\n",
+    "html": "<p><strong>Contentlayer makes working with content easy.</strong> It is a content preprocessor that validates and transforms your content into type-safe JSON you can easily import into your application.</p>"
+  },
+  "_id": "what-is-contentlayer.md",
+  "_raw": {
+    "sourceFilePath": "what-is-contentlayer.md",
+    "sourceFileName": "what-is-contentlayer.md",
+    "sourceFileDir": ".",
+    "contentType": "markdown",
+    "flattenedPath": "what-is-contentlayer"
+  },
+  "type": "Post",
+  "url": "/posts/what-is-contentlayer"
+}
