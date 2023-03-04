@@ -6,7 +6,7 @@ import Image from "next/image";
 import MotionWrapper from "components/MotionWrapper";
 import { ArticleContentVariant } from "config/animations";
 import StaggerWrapper from "components/StaggerWrapper";
-import React, { Children, ReactElement } from "react";
+import React, { Children } from "react";
 
 export async function getStaticPaths() {
   const paths: string[] = allPosts.map((post) => post.url);
@@ -35,7 +35,7 @@ const PostLayout = ({ post }: { post: Post }) => {
       <Head>
         <title>{`Sivert's blog - ${post.title}`}</title>
       </Head>
-      <article className="max-w-prose mx-auto py-8 prose lg:prose-xl">
+      <article className="max-w-prose mx-auto py-24 m-0 prose lg:prose-xl">
         <StaggerWrapper>
         <MotionWrapper variants={ArticleContentVariant}>
       {post.image && <Image width={512} height={512} alt='Post preview' className='object-cover w-full max-h-96 rounded-xl' src={`/images/${post.image}`} />}
