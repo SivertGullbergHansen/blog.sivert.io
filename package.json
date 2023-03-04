@@ -8,10 +8,12 @@
     "start": "next start"
   },
   "dependencies": {
+    "@tailwindcss/line-clamp": "^0.4.2",
     "contentlayer": "latest",
     "daisyui": "^2.51.3",
     "date-fns": "2.29.3",
-    "next": "13.1.6",
+    "framer-motion": "^10.0.1",
+    "next": "^13.2.3",
     "next-contentlayer": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0",

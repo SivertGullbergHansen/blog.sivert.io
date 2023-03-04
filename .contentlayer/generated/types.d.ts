@@ -17,8 +17,14 @@ export type Post = {
   title: string
   /** The date of the post */
   date: IsoDateTimeString
-  /** Markdown file body */
-  body: Markdown
+  /** The description of the post */
+  description: string
+  /** The image URL of the post */
+  image?: string | undefined
+  /** If the post is visible */
+  published: boolean
+  /** MDX file body */
+  body: MDX
   url: string
 }  
 
