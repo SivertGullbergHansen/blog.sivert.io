@@ -30,6 +30,11 @@ const Post = defineDocumentType(() => ({
       description: 'If the post is visible',
       required: true,
     },
+    featured: {
+      type: 'boolean',
+      description: 'Is this a featured post',
+      required: false,
+    }
   },
   computedFields: {
     url: {

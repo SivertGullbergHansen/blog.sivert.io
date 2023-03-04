@@ -65,3 +65,5 @@ out
 !tap-snapshots/dist/*
 
 .contentlayer
+
+.contentlayer/*

@@ -23,6 +23,8 @@ export type Post = {
   image?: string | undefined
   /** If the post is visible */
   published: boolean
+  /** Is this a featured post */
+  featured?: boolean | undefined
   /** MDX file body */
   body: MDX
   url: string

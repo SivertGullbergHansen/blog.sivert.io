@@ -12,19 +12,20 @@ export async function getStaticProps() {
   return { props: { posts } }
 }
 
-export default function ArticleCard(post: Post) {
+export default function ArticleCard({post, className}: {post: Post, className?: string}) {
   return (
-    <motion.div variants={ArticleCardVariant} className="bg-base-100 rounded-2xl max-w-prose w-full btn-ghost overflow-hidden border-0">
-    <Link href={post.url}>
-      {post.image && <Image width={512} height={512} alt='Post preview' className='object-cover w-full max-h-64' src={`/images/${post.image}`} />}
+    <motion.div variants={ArticleCardVariant} className={`bg-base-100 rounded-2xl w-full h-fit btn-ghost overflow-hidden border-0 ${className}`}>
+    <Link scroll={false} href={post.url}>
+      {post.image && <Image placeholder='blur' blurDataURL="/images/placeholder.webp" width={640} height={640} alt='Post preview' className='object-cover w-full max-h-52' src={`/images/${post.image}`} />}
       <div className='p-4 flex flex-col gap-1'>
       <h2 className="text-xl font-semibold">
           {post.title}
       </h2>
+          <p className='line-clamp-2'>{post.description}</p>
       <time dateTime={post.date} className="text-sm text-neutral-content">
         {format(parseISO(post.date), 'LLLL d, yyyy')}
       </time>
-      <p className='line-clamp-2'>{ post.description }</p></div>
+        </div>
       </Link>
       </motion.div>
   );
