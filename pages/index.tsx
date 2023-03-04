@@ -12,7 +12,7 @@ export async function getStaticProps() {
 
 export default function Home({ posts }: { posts: Post[] }) {
   return (
-    <StaggerWrapper className="w-full h-full flex flex-col place-items-center py-32 gap-6">
+    <StaggerWrapper className="w-full h-full sm:px-0 px-4 flex flex-col place-items-center py-28 gap-6">
       {posts.map((post, idx) => {
         if (post.published)
         return (
