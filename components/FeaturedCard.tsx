@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArticleCardVariant } from "config/animations";
 import { ReactElement, ReactNode } from "react";
+import { ImageWithFallback } from "./ImageWithFallback";
 
 export async function getStaticProps() {
   const posts: Post[] = allPosts.sort((a, b) => {
@@ -29,7 +30,7 @@ export default function FeaturedCard({
           href={post.url}
           className='sm:w-[786px]'
       >
-          <Image
+          <ImageWithFallback
             placeholder="blur"
             blurDataURL="/images/placeholder.webp"
             width={640}
