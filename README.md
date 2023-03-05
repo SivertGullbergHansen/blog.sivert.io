@@ -1,23 +1,39 @@
-# Next.js Contentlayer Example
+<div align=center>
+<h1>blog.sivert.io</h1>
+<img src='docs/screenshot.png' />
+</div>
 
-## Demo
+Built with:
+- Nextjs
+- Contentlayer
+- Tailwind
+- Framer-Motion
+- DaisyUI
+- Sass
+- Typescript
 
-View the deployed project: [Demo](https://next-contentlayer-example.vercel.app/)
+## Installation
 
-## Try it Now
+### Clone the project
+```sh
+git clone https://github.com/SivertGullbergHansen/blog.sivert.io.git blog
+cd blog
+```
 
-[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-908a85?logo=gitpod)](http://gitpod.io/#https://github.com/contentlayerdev/next-contentlayer-example)
+### Install dependencies
+```sh
+npm i
+```
+or
+```sh
+yarn
+```
 
-## Local Installation
-
-Clone the project:
-
-    git clone git@github.com:contentlayerdev/next-contentlayer-example.git
-
-Install dependencies:
-
-    yarn
-
-Run dev server:
-
-    yarn dev
+### Run development server
+```sh
+npm run dev
+```
+or
+```sh
+yarn dev
+```
