@@ -1,7 +1,7 @@
-const exitAnimation = { opacity: 0, y: -5, transition: { duration: .33, type: 'spring' } }
+const exitAnimation = { opacity: 0, y: -5, transition: { duration: .2, ease: 'linear' } }
 const transition = { type: 'spring', stiffness: 200 }
-export const parentArticleTransition = { staggerChildren: .033, type: 'spring' }
-export const frontPageTransition = { staggerChildren: .05, type: 'spring' }
+export const parentArticleTransition = { staggerChildren: 0.025 }
+export const frontPageTransition = { staggerChildren: .025 }
 
 export const ArticleCardVariant = {
     initial: { opacity: .0001, y: -33 },

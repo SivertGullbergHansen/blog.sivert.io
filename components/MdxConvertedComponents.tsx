@@ -1,22 +1,9 @@
 import { ArticleContentVariant } from "config/animations";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { TagNameMap } from "config/TagsMdx";
 
 const Components: any = {};
-
-const componentsToAdd = [
-  "a",
-  "p",
-  "h1",
-  "h2",
-  "h3",
-  "pre",
-  "code",
-  "table",
-  "ul",
-  "li",
-  "ol",
-];
 
 const customComponentsToAdd = {
   Link: Link,
@@ -39,7 +26,7 @@ function Custom({
   );
 }
 
-componentsToAdd.forEach((tag) => {
+TagNameMap.forEach((tag) => {
   Components[tag] = (props) => {
     return (
       <Custom tag={tag} {...props}>
