@@ -4,25 +4,60 @@ import Link from "next/link";
 
 const Components: any = {};
 
-function Custom({tag, children, ...props}: {tag: string, children: any, props: any}) {
-    const C = motion[tag]
-    return <C variants={ArticleContentVariant} {...props}>{ children }</C>
+const componentsToAdd = [
+  "a",
+  "p",
+  "h1",
+  "h2",
+  "h3",
+  "pre",
+  "code",
+  "table",
+  "ul",
+  "li",
+  "ol",
+];
+
+const customComponentsToAdd = {
+  Link: Link,
+};
+
+function Custom({
+  tag,
+  children,
+  ...props
+}: {
+  tag: any;
+  children: any;
+  props: any;
+}) {
+  const C = motion(tag);
+  return (
+    <C variants={ArticleContentVariant} {...props}>
+      {children}
+    </C>
+  );
 }
 
-Components.a = (props) => {
-  return <Custom tag='a' {...props}>{props?.children}</Custom>;
-};
+componentsToAdd.forEach((tag) => {
+  Components[tag] = (props) => {
+    return (
+      <Custom tag={tag} {...props}>
+        {props?.children}
+      </Custom>
+    );
+  };
+});
 
-Components.Link = (props) => {
-  return (
-    <motion.div variants={ArticleContentVariant}>
-          <Link {...props}>{props.children}</Link>
-    </motion.div>
-  );
-};
-
-Components.p = (props) => {
-  return <Custom tag='p' {...props}>{props?.children}</Custom>;
-};
+Object.keys(customComponentsToAdd).forEach((name) => {
+  const Tag = customComponentsToAdd[name];
+  Components[name] = (props) => {
+    return (
+      <motion.div variants={ArticleContentVariant}>
+        <Tag {...props}>{props.children}</Tag>
+      </motion.div>
+    );
+  };
+});
 
 export { Components };
