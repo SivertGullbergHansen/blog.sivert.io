@@ -42,7 +42,7 @@ export default function MyApp({ Component, pageProps }) {
         mode="wait"
         onExitComplete={() => {
           if (typeof window !== "undefined") {
-            window.scrollTo({ top: 0 });
+            document.body.scrollTo({ top: 0 });
           }
         }}
       >
