@@ -7,7 +7,7 @@ const metaImg = "/meta/meta_dark.png"
 
 export default function Document() {
     return (
-        <Html lang="en" data-theme='business' className='min-h-screen bg-gradient-to-tl from-base-300 to-base-100'>
+        <Html lang="en" data-theme='business' className='h-screen w-screen overflow-hidden bg-gradient-to-tl from-base-300 to-base-100'>
       <Head>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
@@ -28,7 +28,7 @@ export default function Document() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <body>
+      <body className='w-full h-full overflow-auto'>
         <Main />
         <NextScript />
       </body>
