@@ -22,7 +22,7 @@ export default function ArticleCard({post, className}: {post: Post, className?: 
           {post.title}
       </h2>
           <p className='line-clamp-2'>{post.description}</p>
-      <time dateTime={post.date} className="text-sm text-neutral-content">
+      <time dateTime={post.date} className="text-sm text-secondary">
         {format(parseISO(post.date), 'LLLL d, yyyy')}
       </time>
         </div>
