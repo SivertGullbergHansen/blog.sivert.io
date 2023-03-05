@@ -11,6 +11,7 @@ import {
 import StaggerWrapper from "components/StaggerWrapper";
 import React from "react";
 import { Components } from "components/MdxConvertedComponents";
+import { ImageWithFallback } from "components/ImageWithFallback";
 
 export async function getStaticPaths() {
   const paths: string[] = allPosts.map((post) => post.url);
@@ -47,7 +48,7 @@ const PostLayout = ({ post }: { post: Post }) => {
         <StaggerWrapper transition={parentArticleTransition}>
           <MotionWrapper variants={ArticleContentVariant}>
             {post.image && (
-              <Image
+              <ImageWithFallback
                 placeholder="blur"
                 blurDataURL="/images/placeholder.webp"
                 width={640}
