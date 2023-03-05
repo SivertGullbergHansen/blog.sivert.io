@@ -3,6 +3,9 @@
 <img src='docs/screenshot.png' />
 </div>
 
+<br />
+<br />
+
 Built with:
 - Nextjs
 - Contentlayer
@@ -11,6 +14,9 @@ Built with:
 - DaisyUI
 - Sass
 - Typescript
+
+<br />
+<br />
 
 ## Installation
 
