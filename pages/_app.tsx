@@ -1,6 +1,7 @@
 import Head from 'next/head'
 
 import '../styles/globals.scss'
+import '../styles/codeBlock.scss'
 
 import { Header } from '../components/Header'
 import {AnimatePresence} from 'framer-motion'
