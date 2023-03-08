@@ -32,7 +32,7 @@ export default function FeaturedCard({
       >
           <ImageWithFallback
             placeholder="blur"
-            blurDataURL="/images/placeholder.webp"
+            blurDataURL="/images/plc.webp"
             width={640}
             height={640}
             alt="Post preview"

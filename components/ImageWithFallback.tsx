@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { useEffect, useState } from "react"
 
-const fallbackImage = '/images/placeholder.webp'
+const fallbackImage = '/images/plc.webp'
 
 export const ImageWithFallback = ({
   alt,
@@ -19,6 +19,8 @@ export const ImageWithFallback = ({
       alt={alt}
       onError={setError}
       src={error ? fallbackImage : src}
+      width={props.width || 640}
+    height={props.height || 640}
       {...props}
     />
   )

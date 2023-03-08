@@ -2,7 +2,6 @@ import Head from "next/head";
 import { format, parseISO } from "date-fns";
 import { allPosts, Post } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
-import Image from "next/image";
 import MotionWrapper from "components/MotionWrapper";
 import {
   ArticleContentVariant,
@@ -41,29 +40,31 @@ const PostLayout = ({ post }: { post: Post }) => {
         <title>{`Sivert's blog - ${post.title}`}</title>
       </Head>
       <article
-        className={`max-w-prose mx-auto ${
+        className={`mx-auto ${
           post.image ? "py-12" : "py-32"
-        } px-4 prose lg:prose-xl`}
+        } px-4 prose lg:prose-xl max-w-[1200px]`}
       >
         <StaggerWrapper transition={parentArticleTransition}>
-          <MotionWrapper variants={ArticleContentVariant}>
-            {post.image && (
+            {post.image && (<MotionWrapper variants={ArticleContentVariant}>
               <ImageWithFallback
                 placeholder="blur"
-                blurDataURL="/images/placeholder.webp"
-                width={640}
+                blurDataURL="/images/plc.webp"
+                width={1200}
                 height={640}
                 alt="Post preview"
-                className="object-cover w-full max-h-96 rounded-xl"
+                className="object-cover w-full max-h-[512px] rounded-xl"
                 src={`/images/${post.image}`}
-              />
+              /></MotionWrapper>
             )}
+          <MotionWrapper variants={ArticleContentVariant} className="max-w-prose mx-auto">
             <time dateTime={post.date}>
               {format(parseISO(post.date), "LLLL d, yyyy")}
             </time>
             <h1>{post.title}</h1>
-          </MotionWrapper>
+            <div className="max-w-prose mx-auto">
             <MDXContent components={Components} />
+            </div>
+          </MotionWrapper>
         </StaggerWrapper>
       </article>
     </>
