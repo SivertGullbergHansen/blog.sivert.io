@@ -5,8 +5,6 @@ export const ImageWithFallback = ({
   src,
   ...props
 }) => {
-  console.log(`/_next/image?url=${encodeURIComponent(src)}&q=1&w=128`);
-  
   return (
     <Image
       alt={alt}
