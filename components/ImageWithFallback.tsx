@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { useEffect, useState } from "react"
 
-const fallbackImage = '/images/plc.webp'
+const fallbackImage = '/images/plc_dark.webp'
 
 export const ImageWithFallback = ({
   alt,
@@ -13,15 +13,18 @@ export const ImageWithFallback = ({
   useEffect(() => {
     setError(null)
   }, [src])
+  console.log(props);
+  
 
   return (
     <Image
       alt={alt}
       onError={setError}
       src={error ? fallbackImage : src}
-      width={props.width || 640}
-    height={props.height || 640}
+      width={props.width || 1200}
+      height={props.height || 1200}
       {...props}
+      className={`rounded-xl ${props.className}`}
     />
   )
 }

@@ -6,8 +6,10 @@ import { ImageWithFallback } from "./ImageWithFallback";
 
 const Components: any = {};
 
+
+
 const customComponentsToAdd = {
-  Link: Link,
+  Link: Link
 };
 
 function Custom({
@@ -51,6 +53,12 @@ Object.keys(customComponentsToAdd).forEach((name) => {
 Components['img'] = (props) => {
   return (
     <ImageWithFallback src={props.src} alt={props.alt || 'An illustration'} />
+  )
+}
+
+Components['KBD'] = (props) => {
+  return (
+    <kbd className="kbd kbd-sm" {...props}>{ props.children }</kbd>
   )
 }
 

@@ -20,6 +20,11 @@ const Post = defineDocumentType(() => ({
       description: 'The title of the post',
       required: true,
     },
+    short: {
+      type: 'string',
+      description: 'The short title of the post',
+      required: false,
+    },
     date: {
       type: 'date',
       description: 'The date of the post',

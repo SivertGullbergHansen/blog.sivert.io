@@ -48,11 +48,11 @@ const PostLayout = ({ post }: { post: Post }) => {
             {post.image && (<MotionWrapper variants={ArticleContentVariant}>
               <ImageWithFallback
                 placeholder="blur"
-                blurDataURL="/images/plc.webp"
+                blurDataURL="/images/plc_dark.webp"
                 width={1200}
                 height={640}
                 alt="Post preview"
-                className="object-cover w-full max-h-[512px] rounded-xl"
+                className="object-cover w-full max-h-[512px]"
                 src={`/images/${post.image}`}
               /></MotionWrapper>
             )}
