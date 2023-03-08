@@ -36,7 +36,7 @@ export default function FeaturedCard({
             width={640}
             height={640}
             alt="Post preview"
-            className="object-cover w-full sm:h-full max-h-[512px] rounded-xl"
+            className="object-cover w-full sm:h-full max-h-[512px]"
             src={`/images/${post.image}`}
           />
       </Link>

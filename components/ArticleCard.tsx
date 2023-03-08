@@ -15,7 +15,7 @@ export async function getStaticProps() {
 
 export default function ArticleCard({post, className}: {post: Post, className?: string}) {
   return (
-    <motion.div variants={ArticleCardVariant} className={`rounded-2xl w-full h-fit btn-ghost overflow-hidden border-0 ${className}`}>
+    <motion.div variants={ArticleCardVariant} className={`rounded-2xl w-full h-fit btn-ghost p-2 overflow-hidden border-0 ${className}`}>
     <Link scroll={false} href={post.url}>
       {post.image && <ImageWithFallback width={640} height={640} alt='Post preview' className='object-cover w-full max-h-52' src={`/images/${post.image}`} />}
       <div className='p-4 flex flex-col gap-1'>
