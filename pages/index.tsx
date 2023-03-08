@@ -2,7 +2,7 @@ import { compareDesc } from 'date-fns'
 import { allPosts, Post } from 'contentlayer/generated'
 import ArticleCard from 'components/ArticleCard'
 import StaggerWrapper from 'components/StaggerWrapper'
-import { frontPageTransition } from 'config/animations'
+import { staggerTransition } from 'config/animations'
 import FeaturedCard from 'components/FeaturedCard'
 
 export async function getStaticProps() {
@@ -28,7 +28,7 @@ function FeaturedPost({ posts }: { posts: Post[] }) {
 
 export default function Home({ posts }: { posts: Post[] }) {
   return (
-    <StaggerWrapper transition={frontPageTransition} className="w-full h-full px-8 flex flex-col place-items-center py-28">
+    <StaggerWrapper transition={staggerTransition} className="w-full h-full px-8 flex flex-col place-items-center py-28">
       <div className='flex flex-col gap-12 sm:w-full max-w-[1200px]'>
       <FeaturedPost posts={posts} />
       <div className='gap-12 flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3'>

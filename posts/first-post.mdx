@@ -1,7 +1,7 @@
 ---
-title: First commit
+title: First post
 date: 2023-03-04
-description: npx create-sivert-blog blog.sivert.io --typescript --tailwind
+description: The very first post of this blog
 image: pexels-mark-burnett-731553.jpg
 published: true
 featured: true
@@ -20,3 +20,22 @@ Lorem ullamco ad id elit in in qui irure laborum aliquip Lorem laboris. Do fugia
 Est labore reprehenderit sunt incididunt velit ullamco. Sit non do qui mollit mollit aliqua officia occaecat cillum enim aliqua nostrud. Dolor incididunt magna consectetur excepteur ea fugiat commodo nisi amet irure fugiat. Incididunt culpa eiusmod veniam reprehenderit labore ut quis tempor in id sit nostrud veniam. Magna eiusmod esse eu exercitation voluptate cillum nisi esse reprehenderit incididunt. Eu officia ipsum non culpa labore laboris magna in amet dolore magna aute ad enim.
 
 Nulla consectetur sint aute deserunt id dolore cupidatat. Id dolor sit sit ea quis proident dolore minim do. Sunt consequat laborum velit incididunt mollit dolore esse nulla exercitation laborum ea aliqua reprehenderit. Eiusmod aute proident eiusmod sunt commodo tempor et cupidatat esse quis. Dolore ex consequat ut magna nulla minim dolor veniam aliquip et anim veniam non.
+
+```jsx title="Component.tsx"
+import { useState } from 'react'
+ 
+export default function Counter() {
+  const [count, setCount] = useState(0)
+ 
+  function incrementCount() {
+    setCount((count) => count + 1)
+  }
+ 
+  return (
+    <>
+      <p>Counter: {count}</p>
+      <button onClick={incrementCount}>+1</button>
+    </>
+  )
+}
+```

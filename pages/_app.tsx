@@ -15,7 +15,7 @@ const roboto = Roboto({
 
 
 // This default export is required in a new `pages/_app.js` file.
-export default function MyApp({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps, router }) {
   const [headerPadding, setheaderPadding] = useState(4)
 
   useEffect(() => {
@@ -47,7 +47,7 @@ export default function MyApp({ Component, pageProps }) {
           }
         }}
       >
-        <Component {...pageProps} key={pageProps.post?.url} />
+        <Component {...pageProps} key={`${pageProps.post?.url}_${router.route}`} />
       </AnimatePresence>
     </>
   )

@@ -5,7 +5,7 @@ import { useMDXComponent } from "next-contentlayer/hooks";
 import MotionWrapper from "components/MotionWrapper";
 import {
   ArticleContentVariant,
-  parentArticleTransition,
+  staggerTransition,
 } from "config/animations";
 import StaggerWrapper from "components/StaggerWrapper";
 import React from "react";
@@ -44,7 +44,7 @@ const PostLayout = ({ post }: { post: Post }) => {
           post.image ? "py-12" : "py-32"
         } px-4 prose lg:prose-xl max-w-[1200px]`}
       >
-        <StaggerWrapper transition={parentArticleTransition}>
+        <StaggerWrapper transition={staggerTransition}>
             {post.image && (<MotionWrapper variants={ArticleContentVariant}>
               <ImageWithFallback
                 placeholder="blur"
