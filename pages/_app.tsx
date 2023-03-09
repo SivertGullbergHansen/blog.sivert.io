@@ -7,6 +7,10 @@ import { Header } from '../components/Header'
 import {AnimatePresence} from 'framer-motion'
 import { Roboto } from "next/font/google";
 import { useEffect, useState } from 'react';
+import TimeAgo from 'javascript-time-ago'
+import en from 'javascript-time-ago/locale/en.json'
+
+TimeAgo.addDefaultLocale(en)
 
 const roboto = Roboto({
   subsets: ["latin"],
