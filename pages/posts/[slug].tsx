@@ -62,7 +62,7 @@ const PostLayout = ({ post }: { post: Post }) => {
             <div className="max-w-prose mx-auto">
               <MDXContent components={Components} />
             </div>
-              <Comments className='pt-16'/>
+              {post.comments ? <Comments className='pt-16'/> : null}
           </MotionWrapper>
         </StaggerWrapper>
       </article>
