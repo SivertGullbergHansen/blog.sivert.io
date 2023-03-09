@@ -49,8 +49,13 @@ const Post = defineDocumentType(() => ({
       type: 'boolean',
       description: 'Is this a featured post',
       required: false,
+    },
+    comments: {
+      type: 'boolean',
+      description: 'Comments allowed?',
+      required: false,
     }
-  },
+    },
   computedFields: {
     url: {
       type: 'string',
