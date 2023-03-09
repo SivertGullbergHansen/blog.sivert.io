@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { format, parseISO } from "date-fns";
 import { allPosts, Post } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
@@ -12,6 +11,8 @@ import React from "react";
 import { Components } from "components/MdxConvertedComponents";
 import { ImageWithFallback } from "components/ImageWithFallback";
 import { Comments } from "components/Comments";
+import { HeadMetaGenerator } from "components/HeadMetaGenerator";
+import { meta } from "config/meta";
 
 export async function getStaticPaths() {
   const paths: string[] = allPosts.map((post) => post.url);
@@ -37,9 +38,7 @@ const PostLayout = ({ post }: { post: Post }) => {
 
   return (
     <>
-      <Head>
-        <title>{`Sivert's blog - ${post.title}`}</title>
-      </Head>
+        <HeadMetaGenerator description={post.description} url={`posts/${post.slug}`} metaImg={post.image ? `${post.image}`: null} title={post.title} />
       <article
         className={`mx-auto ${
           post.image ? "py-12" : "py-32"

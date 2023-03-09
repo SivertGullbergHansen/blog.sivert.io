@@ -27,7 +27,6 @@ export default function MyApp({ Component, pageProps, router }) {
   return (
     <>
       <Head>
-        <title>Sivert's blog</title>
         <link rel="icon" type="image/x-icon" href="/favicon.png" />
       </Head>
 

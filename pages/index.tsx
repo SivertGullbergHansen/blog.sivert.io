@@ -4,6 +4,7 @@ import ArticleCard from 'components/ArticleCard'
 import StaggerWrapper from 'components/StaggerWrapper'
 import { staggerTransition } from 'config/animations'
 import FeaturedCard from 'components/FeaturedCard'
+import { HeadMetaGenerator } from "components/HeadMetaGenerator";
 
 export async function getStaticProps() {
   const posts: Post[] = allPosts.sort((a, b) => {
@@ -28,6 +29,8 @@ function FeaturedPost({ posts }: { posts: Post[] }) {
 
 export default function Home({ posts }: { posts: Post[] }) {
   return (
+    <>
+          <HeadMetaGenerator />
     <StaggerWrapper transition={staggerTransition} className="w-full h-full px-8 flex flex-col place-items-center py-28">
       <div className='flex flex-col gap-12 sm:w-full max-w-[1200px]'>
       <FeaturedPost posts={posts} />
@@ -41,5 +44,6 @@ export default function Home({ posts }: { posts: Post[] }) {
       </div>
       </div>
     </StaggerWrapper>
+      </>
   )
 }
