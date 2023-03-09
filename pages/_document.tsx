@@ -5,7 +5,6 @@ export default function Document() {
         <Html lang="en" data-theme='business' className='h-screen w-screen overflow-hidden bg-gradient-to-tl from-base-300 to-base-100'>
         <Head>
         <meta name="theme-color" content="#000000" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <body className='w-full h-full overflow-auto'>
