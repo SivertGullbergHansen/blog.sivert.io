@@ -11,6 +11,7 @@ import StaggerWrapper from "components/StaggerWrapper";
 import React from "react";
 import { Components } from "components/MdxConvertedComponents";
 import { ImageWithFallback } from "components/ImageWithFallback";
+import { Comments } from "components/Comments";
 
 export async function getStaticPaths() {
   const paths: string[] = allPosts.map((post) => post.url);
@@ -46,11 +47,8 @@ const PostLayout = ({ post }: { post: Post }) => {
       >
         <StaggerWrapper transition={staggerTransition}>
             {post.image && (<MotionWrapper variants={ArticleContentVariant}>
-              <ImageWithFallback
-                placeholder="blur"
-                blurDataURL="/images/plc_dark.webp"
-                width={1200}
-                height={640}
+            <ImageWithFallback
+                quality={100}
                 alt="Post preview"
                 className="object-cover w-full max-h-[512px]"
                 src={`/images/${post.image}`}
@@ -62,10 +60,11 @@ const PostLayout = ({ post }: { post: Post }) => {
             </time>
             <h1>{post.title}</h1>
             <div className="max-w-prose mx-auto">
-            <MDXContent components={Components} />
+              <MDXContent components={Components} />
             </div>
           </MotionWrapper>
         </StaggerWrapper>
+              <Comments className='pt-16'/>
       </article>
     </>
   );

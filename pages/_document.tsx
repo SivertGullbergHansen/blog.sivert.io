@@ -2,8 +2,8 @@ import { Html, Head, Main, NextScript } from 'next/document'
 
 const description = "Experienced full-stack developer by day, avid game developer by night"
 const title = "Sivert Gullberg Hansen"
-const url = "https://www.sivert.io/"
-const metaImg = "/meta/meta_dark.png"
+const url = "https://www.blog.sivert.io/"
+const metaImg = "/images/sivertpost.png"
 
 export default function Document() {
     return (

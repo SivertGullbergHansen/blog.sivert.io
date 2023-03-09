@@ -31,10 +31,7 @@ export default function FeaturedCard({
           className='sm:w-[786px]'
       >
           <ImageWithFallback
-            placeholder="blur"
-            blurDataURL="/images/plc_dark.webp"
-            width={640}
-            height={640}
+            quality={100}
             alt="Post preview"
             className="object-cover w-full sm:h-full max-h-[512px]"
             src={`/images/${post.image}`}
