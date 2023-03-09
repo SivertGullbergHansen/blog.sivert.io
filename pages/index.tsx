@@ -5,6 +5,7 @@ import StaggerWrapper from 'components/StaggerWrapper'
 import { staggerTransition } from 'config/animations'
 import FeaturedCard from 'components/FeaturedCard'
 import { HeadMetaGenerator } from "components/HeadMetaGenerator";
+import { useState } from 'react'
 
 export async function getStaticProps() {
   const posts: Post[] = allPosts.sort((a, b) => {
@@ -13,21 +14,17 @@ export async function getStaticProps() {
   return { props: { posts } }
 }
 
+export default function Home({ posts }: { posts: Post[] }) {
+  const [hidePost, sethidePost] = useState('')
+  
 function FeaturedPost({ posts }: { posts: Post[] }) {
-  let Featured = null
-    posts.map((post, idx) => {
-      if (Featured !== null) return null;
-        if (post?.featured)
-        {
-          Featured = <FeaturedCard key={idx} post={post} />
-      }
-    })
+  let post = posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0];
+  sethidePost(post.slug)
   return (
-      Featured
+      <FeaturedCard post={post} />
   )
 }
 
-export default function Home({ posts }: { posts: Post[] }) {
   return (
     <>
           <HeadMetaGenerator />
@@ -35,8 +32,9 @@ export default function Home({ posts }: { posts: Post[] }) {
       <div className='flex flex-col gap-12 sm:w-full max-w-[1200px]'>
       <FeaturedPost posts={posts} />
       <div className='gap-12 flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3'>
-      {posts.map((post, idx) => {
-        if (post.published && !post?.featured)
+            {posts.map((post, idx) => {
+        
+        if (post.slug !== hidePost)
         {
           return <ArticleCard key={idx} post={post} className=''/>
         }
