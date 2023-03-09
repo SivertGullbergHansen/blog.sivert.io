@@ -42,7 +42,7 @@ const PostLayout = ({ post }: { post: Post }) => {
       <article
         className={`mx-auto ${
           post.image ? "py-12" : "py-32"
-        } px-4 prose lg:prose-xl max-w-[1200px]`}
+        } pb-48 px-4 prose lg:prose-xl max-w-[1200px]`}
       >
         <StaggerWrapper transition={staggerTransition}>
             {post.image && (<MotionWrapper variants={ArticleContentVariant}>
