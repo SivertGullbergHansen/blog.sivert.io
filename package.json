@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "placeholders": "Node generatePlaceholders.mjs",
+    "placeholders": "node generatePlaceholders.mjs",
     "build": "npm run placeholders & next build",
     "start": "next start"
   },
