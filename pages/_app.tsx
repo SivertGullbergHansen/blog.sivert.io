@@ -5,7 +5,7 @@ import '../styles/codeBlock.scss'
 
 import { Header } from '../components/Header'
 import {AnimatePresence} from 'framer-motion'
-import { Roboto } from "next/font/google";
+import { Roboto, Noto_Color_Emoji } from "next/font/google";
 import { useEffect, useState } from 'react';
 import TimeAgo from 'javascript-time-ago'
 import en from 'javascript-time-ago/locale/en.json'
@@ -15,6 +15,11 @@ TimeAgo.addDefaultLocale(en)
 const roboto = Roboto({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700", "900"],
+});
+
+const emoji = Noto_Color_Emoji({
+  subsets: ['emoji'],
+  weight: '400'
 });
 
 
@@ -40,6 +45,9 @@ export default function MyApp({ Component, pageProps, router }) {
       <style jsx global>{`
         html {
           font-family: ${roboto.style.fontFamily};
+        }
+        span {
+          font-family: ${emoji.style.fontFamily}, ${roboto.style.fontFamily};
         }
       `}</style>
 
