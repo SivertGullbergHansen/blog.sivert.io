@@ -52,7 +52,7 @@ Object.keys(customComponentsToAdd).forEach((name) => {
 
 Components['img'] = (props) => {
   return (
-    <ImageWithFallback src={props.src} alt={props.alt || 'An illustration'} />
+    <ImageWithFallback imageName={props.src} alt={props.alt || 'An illustration'} />
   )
 }
 

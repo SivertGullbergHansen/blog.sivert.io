@@ -5,7 +5,7 @@ import StaggerWrapper from 'components/StaggerWrapper'
 import { staggerTransition } from 'config/animations'
 import FeaturedCard from 'components/FeaturedCard'
 import { HeadMetaGenerator } from "components/HeadMetaGenerator";
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export async function getStaticProps() {
   const posts: Post[] = allPosts.sort((a, b) => {
@@ -16,21 +16,18 @@ export async function getStaticProps() {
 
 export default function Home({ posts }: { posts: Post[] }) {
   const [hidePost, sethidePost] = useState('')
-  
-function FeaturedPost({ posts }: { posts: Post[] }) {
   let post = posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0];
-  sethidePost(post.slug)
-  return (
-      <FeaturedCard post={post} />
-  )
-}
+  
+  useEffect(() => {    
+    sethidePost(post.slug)
+  }, [])
 
   return (
     <>
           <HeadMetaGenerator />
     <StaggerWrapper transition={staggerTransition} className="w-full h-full px-8 flex flex-col place-items-center py-28">
       <div className='flex flex-col gap-12 sm:w-full max-w-[1200px]'>
-      <FeaturedPost posts={posts} />
+      <FeaturedCard post={post} />
       <div className='gap-12 flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3'>
             {posts.map((post, idx) => {
         

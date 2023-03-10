@@ -18,7 +18,7 @@ export default function ArticleCard({post, className}: {post: Post, className?: 
     <motion.div variants={ArticleCardVariant} className={`rounded-2xl w-full h-fit btn-ghost p-2 overflow-hidden border-0 ${className}`}>
     <Link scroll={false} href={post.url}>
       {post.image && <ImageWithFallback 
-                quality={100} width={640} height={640} alt='Post preview' className='object-cover w-full max-h-52' src={`/images/${post.image}`} />}
+                quality={100} width={640} height={640} alt='Post preview' className='object-cover w-full max-h-52' imageName={post.image} />}
       <div className='p-4 flex flex-col gap-1'>
       <h2 className="text-xl font-semibold">
           {post.short || post.title}

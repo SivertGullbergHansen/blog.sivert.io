@@ -33,7 +33,7 @@ export default function FeaturedCard({
             quality={100}
             alt="Post preview"
             className="object-cover w-full sm:h-full max-h-[512px]"
-            src={`/images/${post.image}`}
+            imageName={post.image}
           />
       </Link>
         )}
@@ -43,9 +43,6 @@ export default function FeaturedCard({
         className="flex flex-col gap-1 h-fit sm:w-1/4">
           <h1 className="text-5xl font-bold">{post.title}</h1>
           <p className="line-clamp-2">{post.description}</p>
-          {/* <time dateTime={post.date} className="text-sm text-neutral-content">
-            {format(parseISO(post.date), "LLLL d, yyyy")}
-          </time> */}
             <ReactTimeAgo className="text-sm text-neutral-content" date={Date.parse(post.date)} locale="en-US"/>
         </Link>
     </motion.div>

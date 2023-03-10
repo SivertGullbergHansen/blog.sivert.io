@@ -50,7 +50,7 @@ const PostLayout = ({ post }: { post: Post }) => {
                 quality={100}
                 alt="Post preview"
                 className="object-cover w-full max-h-[512px]"
-                src={`/images/${post.image}`}
+               imageName={post.image}
               /></MotionWrapper>
             )}
           <MotionWrapper variants={ArticleContentVariant} className="max-w-prose prose-h1:mb-4 mx-auto">
