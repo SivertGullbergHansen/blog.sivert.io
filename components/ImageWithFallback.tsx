@@ -11,8 +11,8 @@ export const ImageWithFallback = ({
       placeholder="blur"
       blurDataURL={`/_next/image?url=${encodeURIComponent(src)}&q=33&w=256`}
       src={src}
-      width={props.width || 1200}
-      height={props.height || 1200}
+      width={props.width ?? 1200}
+      height={props.height ?? 1200}
       {...props}
       className={`rounded-xl ${props.className}`}
     />
