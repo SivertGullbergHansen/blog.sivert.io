@@ -9,7 +9,7 @@ export const ImageWithFallback = ({
     <Image
       alt={alt}
       placeholder="blur"
-      blurDataURL={`/_next/image?url=${encodeURIComponent(src)}&q=1&w=128`}
+      blurDataURL={`/_next/image?url=${encodeURIComponent(src)}&q=33&w=256`}
       src={src}
       width={props.width || 1200}
       height={props.height || 1200}
