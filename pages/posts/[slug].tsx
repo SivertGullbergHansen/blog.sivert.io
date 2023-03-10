@@ -42,7 +42,7 @@ const PostLayout = ({ post }: { post: Post }) => {
       <article
         className={`mx-auto ${
           post.image ? "py-12" : "py-32"
-        } pb-48 px-4 prose lg:prose-xl max-w-[1200px]`}
+        } px-4 prose lg:prose-xl max-w-[1200px]`}
       >
         <StaggerWrapper transition={staggerTransition}>
             {post.image && (<MotionWrapper variants={ArticleContentVariant}>
@@ -53,11 +53,11 @@ const PostLayout = ({ post }: { post: Post }) => {
                 src={`/images/${post.image}`}
               /></MotionWrapper>
             )}
-          <MotionWrapper variants={ArticleContentVariant} className="max-w-prose mx-auto">
+          <MotionWrapper variants={ArticleContentVariant} className="max-w-prose prose-h1:mb-4 mx-auto">
+            <h1 className="not-prose text- text-[2.8em] leading-none font-bold">{post.title}</h1>
             <time dateTime={post.date}>
               {format(parseISO(post.date), "LLLL d, yyyy")}
             </time>
-            <h1>{post.title}</h1>
             <div className="max-w-prose mx-auto">
               <MDXContent components={Components} />
             </div>

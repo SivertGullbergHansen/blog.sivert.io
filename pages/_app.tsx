@@ -10,8 +10,6 @@ import { useEffect, useState } from 'react';
 import TimeAgo from 'javascript-time-ago'
 import en from 'javascript-time-ago/locale/en.json'
 
-TimeAgo.addDefaultLocale(en)
-
 const roboto = Roboto({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700", "900"],
@@ -22,9 +20,11 @@ const emoji = Noto_Color_Emoji({
   weight: '400'
 });
 
+TimeAgo.addLocale(en)
 
 // This default export is required in a new `pages/_app.js` file.
 export default function MyApp({ Component, pageProps, router }) {
+  
   const [headerPadding, setheaderPadding] = useState(4)
 
   useEffect(() => {
