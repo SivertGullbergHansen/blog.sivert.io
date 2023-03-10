@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export const ImageWithFallback = ({ alt, src}, props) => {
+export const ImageWithFallback = ({ alt, src, ...props}) => {
   return (
     <Image
       alt={alt}
