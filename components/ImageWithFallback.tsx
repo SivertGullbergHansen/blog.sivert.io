@@ -10,7 +10,7 @@ export const ImageWithFallback = ({ alt, imageName, ...props }) => {
       width={props.width ?? 1200}
       height={props.height ?? 1200}
       {...props}
-      className={`rounded-xl ${props.className}`}
+      className={`rounded-0 lg:rounded-xl ${props.className}`}
     />
   );
 };

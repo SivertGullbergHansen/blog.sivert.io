@@ -58,7 +58,7 @@ const PostLayout = ({ post }: { post: Post }) => {
           )}
           <MotionWrapper
             variants={ArticleContentVariant}
-            className="max-w-prose prose-h1:mb-4 mx-auto"
+            className="max-w-prose prose-h1:mb-4 mx-auto px-4 sm:px-0"
           >
             <h1 className="not-prose text- text-[2.8em] leading-none font-bold">
               {post.title}
