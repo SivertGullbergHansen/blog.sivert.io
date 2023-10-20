@@ -1,5 +1,5 @@
 const exitAnimation = { opacity: 0, y: 10, transition: { duration: .1, ease: 'linear' } }
-const transition = { type: 'spring', stiffness: 200 }
+export const transition = { type: 'spring', stiffness: 200 }
 export const staggerTransition = { staggerChildren: 0.05 } as const
 
 export const ArticleCardVariant = {

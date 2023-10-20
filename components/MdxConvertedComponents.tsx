@@ -67,7 +67,7 @@ Components["KBD"] = (props) => {
 
 Components["Link"] = (props) => {
   return (
-    <Link target="_blank" {...props}>
+    <Link target={props.href !== undefined && props.href[0] !== '/' ? "_blank" : '_self'} {...props}>
       {props.children}
     </Link>
   );
