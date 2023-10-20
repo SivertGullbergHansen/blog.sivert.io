@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-.giscus-frame {
-    outline: none !important;
+::-webkit-scrollbar-thumb {
+  border: 6px solid hsl(var(--b2));
+  background-color: #212121;
+  min-height: 24px;
+  min-width: 24px;
+}
+::-webkit-scrollbar-track {
+  border: 8px solid hsl(var(--b2));
+  background-color: #dcdcdc;
+}
+::-webkit-scrollbar {
+  width: 17px;
+  height: 17px;
+  background-color: hsl(var(--b2));
 }
