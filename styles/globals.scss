@@ -17,3 +17,8 @@
   height: 17px;
   background-color: hsl(var(--b2));
 }
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

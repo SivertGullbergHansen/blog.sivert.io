@@ -6,21 +6,26 @@ export function Header({ headerPadding }: { headerPadding: number }) {
   return (
     <motion.header
       style={{ transition: "all ease .25s" }}
-      className={`bg-base-200 z-50 flex flex-row p-${headerPadding} shadow place-items-center justify-center xl:justify-start fixed top-0 left-0 right-0`}
+      className={`z-50 flex place-items-center justify-center fixed top-4 left-0 right-0`}
     >
-      <Link
-        scroll={false}
-        href="/"
-        className="btn btn-ghost normal-case font-bold"
+      <motion.div
+        style={{ transition: "all ease .25s" }}
+        className={`flex flex-row w-full max-w-[1200px] justify-start p-${headerPadding} rounded-lg shadow bg-base-100`}
       >
-        Sivert Gullberg Hansen
-      </Link>
-      <nav className="flex flex-row gap-4 fixed top-0 right-0 xl:relative">
-        <Link href="https://sivert.io" className="flex gap-1 btn btn-ghost">
-          <IoDocumentText className="w-4 h-4" />
-          <span className="xl:block hidden">Portfolio</span>
+        <Link
+          scroll={false}
+          href="/"
+          className="btn btn-ghost normal-case font-bold"
+        >
+          Sivert Gullberg Hansen
         </Link>
-      </nav>
+        <nav className="flex gap-2">
+          <Link href="https://sivert.io" className="flex gap-1 btn btn-ghost">
+            <IoDocumentText className="w-4 h-4" />
+            <span>Portfolio</span>
+          </Link>
+        </nav>
+      </motion.div>
     </motion.header>
   );
 }

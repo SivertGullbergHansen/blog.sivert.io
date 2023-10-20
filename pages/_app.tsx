@@ -1,14 +1,15 @@
-import Head from 'next/head'
+import Head from "next/head";
 
-import '../styles/globals.scss'
-import '../styles/codeBlock.scss'
+import "../styles/globals.scss";
+import "../styles/codeBlock.scss";
+import "../styles/pretty-code.css";
 
-import { Header } from '../components/Header'
-import {AnimatePresence} from 'framer-motion'
+import { Header } from "../components/Header";
+import { AnimatePresence } from "framer-motion";
 import { Roboto, Noto_Color_Emoji } from "next/font/google";
-import { useEffect, useState } from 'react';
-import TimeAgo from 'javascript-time-ago'
-import en from 'javascript-time-ago/locale/en.json'
+import { useEffect, useState } from "react";
+import TimeAgo from "javascript-time-ago";
+import en from "javascript-time-ago/locale/en.json";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -16,22 +17,23 @@ const roboto = Roboto({
 });
 
 const emoji = Noto_Color_Emoji({
-  subsets: ['emoji'],
-  weight: '400'
+  subsets: ["emoji"],
+  weight: "400",
 });
 
-TimeAgo.addLocale(en)
+TimeAgo.addLocale(en);
 
 // This default export is required in a new `pages/_app.js` file.
 export default function MyApp({ Component, pageProps, router }) {
-  
-  const [headerPadding, setheaderPadding] = useState(4)
+  const [headerPadding, setheaderPadding] = useState(4);
 
   useEffect(() => {
-    if (pageProps.post === undefined) { setheaderPadding(4)}
-    else { setheaderPadding(0);  }
-  
-  }, [pageProps.post])
+    if (pageProps.post === undefined) {
+      setheaderPadding(4);
+    } else {
+      setheaderPadding(0);
+    }
+  }, [pageProps.post]);
 
   return (
     <>
@@ -59,8 +61,11 @@ export default function MyApp({ Component, pageProps, router }) {
           }
         }}
       >
-        <Component {...pageProps} key={`${pageProps.post?.url}_${router.route}`} />
+        <Component
+          {...pageProps}
+          key={`${pageProps.post?.url}_${router.route}`}
+        />
       </AnimatePresence>
     </>
-  )
+  );
 }
