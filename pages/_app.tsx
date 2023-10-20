@@ -25,13 +25,16 @@ TimeAgo.addLocale(en);
 
 // This default export is required in a new `pages/_app.js` file.
 export default function MyApp({ Component, pageProps, router }) {
-  const [headerPadding, setheaderPadding] = useState(4);
+  const [headerPadding, setheaderPadding] = useState("p-2");
+  const [headerWidth, setHeaderWidth] = useState("1200px");
 
   useEffect(() => {
     if (pageProps.post === undefined) {
-      setheaderPadding(4);
+      setheaderPadding("p-2");
+      setHeaderWidth("w-[1200px]");
     } else {
-      setheaderPadding(0);
+      setheaderPadding("p-0");
+      setHeaderWidth("w-[55rem]");
     }
   }, [pageProps.post]);
 
@@ -42,7 +45,7 @@ export default function MyApp({ Component, pageProps, router }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <Header headerPadding={headerPadding} />
+      <Header headerPadding={headerPadding} maxWidth={headerWidth} />
 
       <style jsx global>{`
         html {

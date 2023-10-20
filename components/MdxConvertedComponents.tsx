@@ -6,10 +6,8 @@ import { ImageWithFallback } from "./ImageWithFallback";
 
 const Components: any = {};
 
-
-
 const customComponentsToAdd = {
-  Link: Link
+  // Link: Link,
 };
 
 function Custom({
@@ -44,22 +42,37 @@ Object.keys(customComponentsToAdd).forEach((name) => {
   Components[name] = (props) => {
     return (
       // <motion.div variants={ArticleContentVariant}>
-        <Tag {...props}>{props.children}</Tag>
+      <Tag {...props}>{props.children}</Tag>
       // </motion.div>
     );
   };
 });
 
-Components['img'] = (props) => {
+Components["img"] = (props) => {
   return (
-    <ImageWithFallback imageName={props.src} alt={props.alt || 'An illustration'} />
-  )
-}
+    <ImageWithFallback
+      imageName={props.src}
+      alt={props.alt || "An illustration"}
+    />
+  );
+};
 
-Components['KBD'] = (props) => {
+Components["KBD"] = (props) => {
   return (
-    <kbd className="kbd kbd-sm" {...props}>{ props.children }</kbd>
-  )
-}
+    <kbd className="kbd kbd-sm" {...props}>
+      {props.children}
+    </kbd>
+  );
+};
+
+Components["Link"] = (props) => {
+  return (
+    <Link target="_blank" {...props}>
+      {props.children}
+    </Link>
+  );
+};
+
+Components["a"] = Components["Link"];
 
 export { Components };

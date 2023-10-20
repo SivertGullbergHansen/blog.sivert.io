@@ -40,7 +40,7 @@ export default function FeaturedCard({
       <Link
         scroll={false}
         href={post.url}
-        className="flex flex-col gap-1 h-fit sm:w-1/4"
+        className="flex flex-col gap-1 h-fit"
       >
         <h1 className="text-5xl font-bold">{post.title}</h1>
         <p className="line-clamp-2">{post.description}</p>
