@@ -53,6 +53,7 @@ Components["img"] = (props) => {
     <ImageWithFallback
       imageName={props.src}
       alt={props.alt || "An illustration"}
+      className='rounded-0 lg:rounded-xl'
     />
   );
 };

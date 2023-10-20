@@ -16,7 +16,7 @@ export function Header({
     >
       <motion.div
         style={{ transition: "all ease .25s" }}
-        className={`flex flex-row ${maxWidth} justify-start ${headerPadding} rounded-lg shadow bg-base-100`}
+        className={`flex flex-row ${maxWidth} justify-between items-center ${headerPadding} rounded-lg shadow bg-base-100`}
       >
         <Link
           scroll={false}
@@ -27,8 +27,7 @@ export function Header({
         </Link>
         <nav className="flex gap-2">
           <Link href="https://sivert.io" className="flex gap-1 btn btn-ghost">
-            <IoDocumentText className="w-4 h-4" />
-            <span>Portfolio</span>
+            Portfolio
           </Link>
         </nav>
       </motion.div>

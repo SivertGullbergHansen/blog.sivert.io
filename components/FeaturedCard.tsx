@@ -31,7 +31,7 @@ export default function FeaturedCard({
             <ImageWithFallback
               quality={100}
               alt="Post preview"
-              className="object-cover w-full sm:h-full max-h-[512px]"
+              className="object-cover w-full sm:h-full max-h-[512px] rounded-xl"
               imageName={post.image}
             />
           </div>

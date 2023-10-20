@@ -33,7 +33,7 @@ export default function ArticleCard({
               width={640}
               height={640}
               alt="Post preview"
-              className="object-cover w-full max-h-52"
+              className="object-cover w-full max-h-52 rounded-xl"
               imageName={post.image}
             />
           </div>

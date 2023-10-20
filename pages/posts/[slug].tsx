@@ -2,15 +2,19 @@ import { format, parseISO } from "date-fns";
 import { allPosts, Post } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import MotionWrapper from "components/MotionWrapper";
-import { ArticleContentVariant, staggerTransition, transition } from "config/animations";
+import {
+  ArticleContentVariant,
+  staggerTransition,
+  transition,
+} from "config/animations";
 import StaggerWrapper from "components/StaggerWrapper";
 import React, { useEffect, useState } from "react";
 import { Components } from "components/MdxConvertedComponents";
 import { ImageWithFallback } from "components/ImageWithFallback";
 import { Comments } from "components/Comments";
 import { HeadMetaGenerator } from "components/HeadMetaGenerator";
-import {FaArrowUp} from 'react-icons/fa';
-import {motion, useMotionValueEvent, useScroll} from 'framer-motion'
+import { FaArrowUp } from "react-icons/fa";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 
 export async function getStaticPaths() {
   const paths: string[] = allPosts.map((post) => post.url);
@@ -35,7 +39,9 @@ const PostLayout = ({ post }: { post: Post }) => {
   const MDXContent = useMDXComponent(post.body.code);
   const [isOpen, setIsOpen] = useState(false);
   const scroll = useScroll();
-  useMotionValueEvent(scroll.scrollY, "change", (latest) => setIsOpen(latest > 360))
+  useMotionValueEvent(scroll.scrollY, "change", (latest) =>
+    setIsOpen(latest > 360)
+  );
 
   return (
     <>
@@ -51,16 +57,23 @@ const PostLayout = ({ post }: { post: Post }) => {
         className="fixed bottom-64 left-0 right-0 flex justify-center px-4"
         variants={{
           open: { y: 0, opacity: 1 },
-          closed: { y: '100%', opacity: 0 }
+          closed: { y: "100%", opacity: 0 },
         }}
         transition={transition}
       >
-          <div className="w-full max-w-[55rem] flex justify-end">
-          <button onClick={() => {
-            if (window !== undefined) window.scrollTo({top: 0})
-        }} className="btn btn-ghost border-0 text-base-content bg-base-100 btn-circle">
-          <FaArrowUp className="w-4 h-4"/>
-        </button>
+        <div className="w-full max-w-[55rem] flex justify-end">
+          <button
+            onClick={() => {
+              if (window !== undefined) {
+                window.scrollTo({ top: 0 });
+              }
+            }}
+            className={`btn btn-ghost shadow border-0 text-base-content bg-base-100 btn-square ${
+              isOpen ? "pointer-events-auto" : "pointer-events-none"
+            }`}
+          >
+            <FaArrowUp className="w-4 h-4" />
+          </button>
         </div>
       </motion.div>
       <article
@@ -74,7 +87,7 @@ const PostLayout = ({ post }: { post: Post }) => {
               <ImageWithFallback
                 quality={100}
                 alt="Post preview"
-                className="object-cover w-full max-h-[512px]"
+                className="object-cover w-full max-h-[512px] rounded-0 lg:rounded-xl"
                 imageName={post.image}
               />
             </MotionWrapper>
