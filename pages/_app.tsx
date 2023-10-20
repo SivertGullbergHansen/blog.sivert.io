@@ -1,7 +1,6 @@
 import Head from "next/head";
 
 import "../styles/globals.scss";
-import "../styles/codeBlock.scss";
 import "../styles/pretty-code.css";
 
 import { Header } from "../components/Header";
