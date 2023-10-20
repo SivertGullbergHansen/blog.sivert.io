@@ -5,7 +5,7 @@ import "../styles/pretty-code.css";
 
 import { Header } from "../components/Header";
 import { AnimatePresence } from "framer-motion";
-import { Roboto, Noto_Color_Emoji } from "next/font/google";
+import { Roboto, Noto_Color_Emoji, JetBrains_Mono } from "next/font/google";
 import { useEffect, useState } from "react";
 import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en.json";
@@ -19,6 +19,8 @@ const emoji = Noto_Color_Emoji({
   subsets: ["emoji"],
   weight: "400",
 });
+
+const mono = JetBrains_Mono({subsets: ['latin']})
 
 TimeAgo.addLocale(en);
 
@@ -42,6 +44,11 @@ export default function MyApp({ Component, pageProps, router }) {
       <Head>
         <link rel="icon" type="image/x-icon" href="/favicon.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <style>
+          {`div[data-rehype-pretty-code-fragment] * {
+            font-family: ${mono.style.fontFamily};
+          }`}
+        </style>
       </Head>
 
       <Header headerPadding={headerPadding} maxWidth={headerWidth} />
@@ -59,7 +66,7 @@ export default function MyApp({ Component, pageProps, router }) {
         mode="wait"
         onExitComplete={() => {
           if (typeof window !== "undefined") {
-            document.body.scrollTo({ top: 0 });
+            window.scrollTo({ top: 0 });
           }
         }}
       >

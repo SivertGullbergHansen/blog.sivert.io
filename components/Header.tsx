@@ -12,7 +12,7 @@ export function Header({
   return (
     <motion.header
       style={{ transition: "all ease .25s" }}
-      className={`z-50 flex place-items-center justify-center fixed top-4 left-2 sm:left-[17px] lg:left-0 right-2 md:right-0`}
+      className={`z-50 flex place-items-center justify-center fixed top-4 left-2 sm:left-[17px] xl:left-0 right-2 md:right-0`}
     >
       <motion.div
         style={{ transition: "all ease .25s" }}
