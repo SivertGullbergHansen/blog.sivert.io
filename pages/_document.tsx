@@ -7,7 +7,7 @@ export default function Document() {
       className="bg-base-200 overflow-y-scroll h-screen scroll-smooth"
     >
       <Head>
-        <meta name="theme-color" content="#000000" />
+        <meta name="theme-color" content="#fff" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <body>
