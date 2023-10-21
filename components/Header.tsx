@@ -20,9 +20,10 @@ export function Header({
   allPosts.forEach((post) => {
     if (post.tags && Array.isArray(post.tags)) {
       // Add each tag to the allTags array
-      post.tags.forEach((tag) => t.push(tag))
+      post.tags.forEach((tag) => !t.includes(tag) && t.push(tag))
     }
   });
+    t.sort()
   setallTags(t)
   }, [])
 

@@ -27,11 +27,11 @@ export default function FeaturedCard({
     >
       {post.image && (
         <Link scroll={false} href={post.url} className="sm:w-[786px]">
-          <div className="rounded-2xl border-2 p-1 border-base-300">
+          <div className="rounded-2xl border-2 p-1 border-base-300 h-full w-full">
             <ImageWithFallback
               quality={100}
               alt="Post preview"
-              className="object-cover w-full sm:h-full max-h-[512px] rounded-xl"
+              className="object-cover w-full h-full rounded-xl"
               imageName={post.image}
             />
           </div>
