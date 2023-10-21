@@ -72,7 +72,7 @@ export default function MyApp({ Component, pageProps, router }) {
       >
         <Component
           {...pageProps}
-          key={`${pageProps.post?.url}_${router.route}`}
+          key={`${pageProps.post?.url}_${router.route}_${router.query.slug}`}
         />
       </AnimatePresence>
     </>
