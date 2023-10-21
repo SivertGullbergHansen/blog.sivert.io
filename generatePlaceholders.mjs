@@ -19,7 +19,7 @@ async function createPlaceholder(imageName) {
         });
 }
 
-const regex = new RegExp(/[^\s]+(.*?).(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)$/);
+const regex = new RegExp(/[^\s]+(.*?).(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF|webp|WEBP)$/);
     
 fs.readdir('./public/images', (err, files) => {
   files.forEach(file => {
