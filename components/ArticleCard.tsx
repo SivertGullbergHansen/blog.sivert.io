@@ -23,7 +23,7 @@ export default function ArticleCard({
   return (
     <motion.div
       variants={ArticleCardVariant}
-      className={`w-full h-fit overflow-hidden border-0 ${className}`}
+      className={`w-full h-fit border-0 ${className}`}
     >
       <Link scroll={false} href={post.url}>
         {post.image && (
