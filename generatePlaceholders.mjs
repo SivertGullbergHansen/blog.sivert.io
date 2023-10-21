@@ -1,22 +1,21 @@
 import fs from "fs";
 import sharp from "sharp";
+import util from "util";
+
+const writeFileAsync = util.promisify(fs.writeFile);
 
 async function createPlaceholder(imageName) {
   const path = `./public/images/${imageName}`
 
   const nameOnly = imageName.split('.')[0]
   
-  sharp(path)
+  const baseImg = await sharp(path)
     .resize(128, null)
     .webp()
   .blur(5)
-        .toFile(`./public/images/placeholders/${nameOnly}.webp`, function(err){
-          if (err) {
-          console.log('Fail: ' + imageName);
-              console.log(err);
-          }
-          console.log('success: ' + imageName);
-        });
+    .toBuffer();
+  
+  await writeFileAsync(`./public/images/placeholders/${nameOnly}.txt`, `data:image/png;base64,${baseImg.toString('base64')}`, 'utf-8');
 }
 
 const regex = new RegExp(/[^\s]+(.*?).(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF|webp|WEBP)$/);
