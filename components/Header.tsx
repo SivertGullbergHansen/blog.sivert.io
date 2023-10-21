@@ -29,7 +29,7 @@ export function Header({
 
   useEffect(() => {
     setshowTags(false);
-  }, [router.pathname])
+  }, [router])
   
   
   return (
