@@ -15,7 +15,7 @@ export async function getStaticProps() {
 }
 
 export default function Home({ posts }: { posts: Post[] }) {
-  const [hidePost, sethidePost] = useState('')
+  const [hidePost, sethidePost] = useState('') // Define which post is featured so we hide it in the list of smaller posts
   let post = posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0];
   
   useEffect(() => {    

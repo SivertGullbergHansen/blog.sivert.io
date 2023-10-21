@@ -9,7 +9,7 @@ import emoji from "remark-emoji";
 import rehypePrettyCode from "rehype-pretty-code";
 import remarkInlineLinks from "remark-inline-links";
 import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
-import theme from './moonlight-ii.json'
+import theme from "./moonlight-ii.json";
 
 const Post = defineDocumentType(() => ({
   name: "Post",
@@ -49,6 +49,12 @@ const Post = defineDocumentType(() => ({
     allowComments: {
       type: "boolean",
       description: "Comments allowed?",
+      required: false,
+    },
+    tags: {
+      type: "list",
+      of: { type: "string" },
+      description: "Tags related to this post",
       required: false,
     },
   },
