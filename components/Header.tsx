@@ -2,7 +2,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { allPosts } from "contentlayer/generated";
-import {useRouter} from 'next/router'
+import { useRouter } from 'next/router'
+import { IoLogoGithub } from 'react-icons/io5'
 
 export function Header({
   headerPadding,
@@ -54,9 +55,9 @@ export function Header({
           Sivert Gullberg Hansen
         </Link>
         <nav className="flex gap-2">
-          <button className="btn btn-ghost" onClick={() => setshowTags(!showTags)}>Tags</button>
-          <Link href="https://sivert.io" className="flex gap-1 btn btn-ghost">
-            Portfolio
+          <button className="btn btn-ghost normal-case" onClick={() => setshowTags(!showTags)}>Tags</button>
+          <Link target="_blank" href="https://github.com/SivertGullbergHansen" className="flex gap-1 btn btn-ghost">
+            <IoLogoGithub className="h-4 w-4"/>
           </Link>
         </nav>
       </motion.div>
