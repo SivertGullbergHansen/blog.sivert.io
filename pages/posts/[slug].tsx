@@ -8,16 +8,20 @@ import {
   transition,
 } from "config/animations";
 import StaggerWrapper from "components/StaggerWrapper";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Components } from "components/MdxConvertedComponents";
 import { ImageWithFallback } from "components/ImageWithFallback";
 import { Comments } from "components/Comments";
 import { HeadMetaGenerator } from "components/HeadMetaGenerator";
 import { FaArrowUp } from "react-icons/fa";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import Link from "next/link";
 
 export async function getStaticPaths() {
-  const paths: string[] = allPosts.map((post) => post.url);
+  const paths = allPosts
+    .filter((post) => post.published)
+    .map((post) => post.url);
+
   return {
     paths,
     fallback: false,
@@ -28,6 +32,7 @@ export async function getStaticProps({ params }) {
   const post: Post = allPosts.find(
     (post) => post._raw.flattenedPath === params.slug
   );
+  
   return {
     props: {
       post,
@@ -42,6 +47,22 @@ const PostLayout = ({ post }: { post: Post }) => {
   useMotionValueEvent(scroll.scrollY, "change", (latest) =>
     setIsOpen(latest > 360)
   );
+
+  const ImageAuthor = () => {
+    const style = "font-medium text-gray-400 text-sm";
+    return (
+      <p className={style}>
+        Credit:{" "}
+        {post.imageCreditsLink ? (
+          <Link target="_blank" className="link-hover" href={post.imageCreditsLink}>
+            {post.imageCredits}
+          </Link>
+        ) : (
+          post.imageCredits
+        )}
+      </p>
+    );
+  };
 
   return (
     <>
@@ -83,14 +104,17 @@ const PostLayout = ({ post }: { post: Post }) => {
       >
         <StaggerWrapper transition={staggerTransition}>
           {post.image && (
-            <MotionWrapper variants={ArticleContentVariant}>
-              <ImageWithFallback
-                quality={100}
-                alt="Post preview"
-                className="object-cover w-full max-h-[512px] rounded-0 lg:rounded-xl"
-                imageName={post.image}
-              />
-            </MotionWrapper>
+            <div className="flex flex-col gap-2 not-prose py-10">
+              <MotionWrapper variants={ArticleContentVariant}>
+                <ImageWithFallback
+                  quality={100}
+                  alt={post.imageAlt || "A placeholder image"}
+                  className="object-cover w-full max-h-[512px] rounded-0 lg:rounded-xl"
+                  imageName={post.image}
+                />
+                {post.imageCredits && <ImageAuthor />}
+              </MotionWrapper>
+            </div>
           )}
           <MotionWrapper
             variants={ArticleContentVariant}

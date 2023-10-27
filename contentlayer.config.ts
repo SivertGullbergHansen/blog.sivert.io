@@ -41,6 +41,21 @@ const Post = defineDocumentType(() => ({
       description: "The image URL of the post",
       required: false,
     },
+    imageCredits: {
+      type: "string",
+      description: "Image author",
+      required: false,
+    },
+    imageCreditsLink: {
+      type: "string",
+      description: "Link to the author",
+      required: false,
+    },
+    imageAlt: {
+      type: "string",
+      description: "Description of image",
+      required: false,
+    },
     published: {
       type: "boolean",
       description: "If the post is visible",

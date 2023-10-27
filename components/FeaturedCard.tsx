@@ -30,7 +30,7 @@ export default function FeaturedCard({
           <div className="rounded-2xl border-2 p-1 border-base-300 h-full w-full">
             <ImageWithFallback
               quality={100}
-              alt="Post preview"
+              alt={post.imageAlt || 'A placeholder image'}
               className="object-cover w-full h-full rounded-xl"
               imageName={post.image}
             />

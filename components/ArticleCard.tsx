@@ -32,14 +32,14 @@ export default function ArticleCard({
               quality={100}
               width={640}
               height={640}
-              alt="Post preview"
+              alt={post.imageAlt || 'A placeholder image'}
               className="object-cover w-full max-h-52 rounded-xl"
               imageName={post.image}
             />
           </div>
         )}
         <div className="p-4 flex flex-col gap-1">
-          <h2 className="text-xl font-semibold">{post.short || post.title}</h2>
+          <h2 className="text-xl font-semibold">{post.title}</h2>
           <p className="line-clamp-2">{post.description}</p>
           <ReactTimeAgo
             className="text-sm text-primary"
