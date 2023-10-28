@@ -25,15 +25,15 @@ export default function ArticleCard({
       variants={ArticleCardVariant}
       className={`w-full h-fit border-0 ${className}`}
     >
-      <Link scroll={false} href={post.url}>
+      <Link scroll={false} href={post.url} className="flex flex-col">
         {post.image && (
-          <div className="rounded-2xl border-2 p-1 border-base-300">
+          <div className="rounded-2xl border-2 p-1 border-base-300 h-52 sm:h-72 md:h-52 flex">
             <ImageWithFallback
               quality={100}
               width={640}
               height={640}
               alt={post.imageAlt || 'A placeholder image'}
-              className="object-cover w-full max-h-52 rounded-xl"
+              className="object-cover rounded-xl w-full"
               imageName={post.image}
             />
           </div>
