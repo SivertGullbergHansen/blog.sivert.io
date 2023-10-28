@@ -19,7 +19,7 @@ export function Header({
     const t = [];
     // Loop through each post and extract its tags
     allPosts.forEach((post) => {
-      if (post.tags && Array.isArray(post.tags)) {
+      if (post.tags && post.published && Array.isArray(post.tags)) {
         // Add each tag to the allTags array
         post.tags.forEach((tag) => !t.includes(tag) && t.push(tag));
       }
