@@ -7,10 +7,10 @@ import { IoLogoGithub } from "react-icons/io5";
 
 export function Header({
   headerPadding,
-  maxWidth,
+  width,
 }: {
   headerPadding: string;
-  maxWidth: string;
+  width: string;
 }) {
   const router = useRouter();
   const [allTags, setallTags] = useState<string[]>([]);
@@ -34,15 +34,13 @@ export function Header({
 
   return (
     <motion.header
-      style={{ transition: "all ease .25s" }}
       className={`z-50 flex place-items-center justify-center fixed top-4 left-2 sm:left-[17px] xl:left-0 right-2 md:right-0`}
     >
       <motion.div
-        style={{ transition: "all ease .25s" }}
-        className={`flex flex-row ${maxWidth} justify-between items-center ${headerPadding} rounded-lg shadow bg-base-100 relative`}
+        style={{ transition: "padding ease .25s, width ease .25s" }}
+        className={`flex flex-row ${width} justify-between items-center ${headerPadding} rounded-lg shadow bg-base-100 relative`}
       >
         <motion.div
-          style={{ transition: "all ease .25s" }}
           className={`absolute left-0 right-0 -bottom-12 bg-base-100 rounded-lg shadow p-1 flex items-center justify-end gap-1 ${
             showTags
               ? "pointer-events-auto opacity-100 translate-y-0"

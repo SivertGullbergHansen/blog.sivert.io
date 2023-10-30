@@ -4,10 +4,10 @@ export default function Document() {
   return (
     <Html
       lang="en"
-      className="bg-base-200 overflow-y-scroll h-screen scroll-smooth"
+      className="bg-base-200"
+      data-theme='sivert_dark'
     >
       <Head>
-        <meta name="theme-color" content="#fff" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <body>

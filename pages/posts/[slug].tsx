@@ -49,7 +49,7 @@ const PostLayout = ({ post }: { post: Post }) => {
   );
 
   const ImageAuthor = () => {
-    const style = "font-medium text-gray-400 text-sm";
+    const style = "font-medium text-base-content opacity-75 text-sm";
     return (
       <p className={style}>
         Credit:{" "}

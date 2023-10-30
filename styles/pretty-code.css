@@ -49,14 +49,6 @@ pre > code {
   @apply !text-purple-200 bg-purple-800/50 border-b-purple-600 font-bold;
 }
 
-.prose :where(a):not(:where([class~="not-prose"] *)) {
-  color: hsl(var(--n));
-}
-
-.prose :where(a):not(:where([class~="not-prose"] *)):hover {
-  background-color: hsl(var(--a));
-}
-
 code {
   counter-reset: line;
 }

@@ -9,6 +9,7 @@ import { Roboto, Noto_Color_Emoji, JetBrains_Mono } from "next/font/google";
 import { useEffect, useState } from "react";
 import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en.json";
+import ThemeWrapper from "components/ThemeWrapper";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -40,7 +41,7 @@ export default function MyApp({ Component, pageProps, router }) {
   }, [pageProps.post]);
 
   return (
-    <>
+    <ThemeWrapper>
       <Head>
         <link rel="icon" type="image/x-icon" href="/favicon.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -51,7 +52,7 @@ export default function MyApp({ Component, pageProps, router }) {
         </style>
       </Head>
 
-      <Header headerPadding={headerPadding} maxWidth={headerWidth} />
+      <Header headerPadding={headerPadding} width={headerWidth} />
 
       <style jsx global>{`
         html {
@@ -75,6 +76,6 @@ export default function MyApp({ Component, pageProps, router }) {
           key={`${pageProps.post?.url}_${router.route}_${router.query.slug}`}
         />
       </AnimatePresence>
-    </>
+    </ThemeWrapper>
   );
 }

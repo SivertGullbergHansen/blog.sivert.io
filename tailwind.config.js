@@ -8,7 +8,6 @@ const linkHeadingStyles = {
   },
 };
 
-
 module.exports = {
 	theme: {
     extend: {
@@ -32,14 +31,14 @@ module.exports = {
             },
             a: {
               textDecoration: 'none',
-              borderBottom: `2px solid ${colors.cyan[800]}`,
-              color: colors.cyan[400],
+              borderBottom: `2px solid hsl(var(--p))`,
+              color: `hsl(var(--p))`,
               transition:
                 'color 0.2s ease, border-color 0.2s ease, background 0.2s ease',
               '&:hover': {
-                color: `${colors.zinc[900]} !important`,
-                borderBottomColor: `${colors.cyan[200]} !important`,
-                background: colors.cyan[200],
+                color: `hsl(var(--pc)) !important`,
+                borderBottomColor: ` hsl(var(--p)) !important`,
+                background: `hsl(var(--p))`,
               },
             },
             code: {
@@ -78,9 +77,11 @@ module.exports = {
     require("@tailwindcss/line-clamp"),
   ],
   daisyui: {
+    darkTheme: "dark",
+    base: false,
     themes: [
       {
-        mytheme: {
+        sivert_light: {
           primary: "#570df8",
           secondary: "#f000b8",
           accent: "#1dcdbc",
@@ -90,6 +91,17 @@ module.exports = {
           success: "#36d399",
           warning: "#fbbd23",
           error: "#f87272",
+        },
+        sivert_dark: {
+          primary: "#d0bcff",
+          secondary: "#ccc2dc",
+          accent: "#efb8c8",
+          neutral: "#2b3440",
+          "base-100": "#2b2930",
+          info: "#3abff8",
+          success: "#36d399",
+          warning: "#fbbd23",
+          error: "#f2b8b5",
         },
       },
     ],
