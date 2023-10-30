@@ -1,20 +1,24 @@
-import React, { useRef } from "react";
+import React, { useContext } from "react";
+import Giscus from '@giscus/react'
+import { ThemeContext } from "./ThemeWrapper";
 
-import useScript from "./useScript";
+const Comments = () => {
+  const theme = useContext(ThemeContext);
 
-const Comments = ({ ...props }) => {
-  const comment = useRef(null);
-
-  useScript({
-    url: "https://giscus.app/client.js",
-    ref: comment,
-    theme: "noborder_light",
-  });
-
-  return (
-    <div className={`w-full ${props.className}`}>
-      {<div ref={comment}></div>}
-    </div>
+  return (<Giscus
+    id="comments"
+    repo="SivertGullbergHansen/blog.sivert.io"
+    repoId="R_kgDOJFDxMQ"
+    category="Announcements"
+    categoryId="DIC_kwDOJFDxMc4CUxCa"
+    mapping="pathname"
+    reactionsEnabled="1"
+    emitMetadata="0"
+    inputPosition="top"
+    theme={theme === 'sivert_dark' ? 'noborder_dark' : 'noborder_light'}
+    lang="en"
+    loading="lazy"
+  />
   );
 };
 

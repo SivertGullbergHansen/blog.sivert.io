@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html
       lang="en"
-      className="bg-base-200"
+      className="overflow-y-scroll h-screen scroll-smooth bg-base-200 text-base-content transition-none"
       data-theme='sivert_dark'
     >
       <Head>

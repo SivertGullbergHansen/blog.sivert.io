@@ -9,6 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@giscus/react": "^2.3.0",
     "@tailwindcss/line-clamp": "^0.4.2",
     "contentlayer": "latest",
     "daisyui": "^2.51.3",

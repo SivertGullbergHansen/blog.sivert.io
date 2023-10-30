@@ -8,14 +8,14 @@ import {
   transition,
 } from "config/animations";
 import StaggerWrapper from "components/StaggerWrapper";
-import React, { useState } from "react";
+import React, { useEffect, useInsertionEffect, useRef, useState } from "react";
 import { Components } from "components/MdxConvertedComponents";
 import { ImageWithFallback } from "components/ImageWithFallback";
-import { Comments } from "components/Comments";
 import { HeadMetaGenerator } from "components/HeadMetaGenerator";
 import { FaArrowUp } from "react-icons/fa";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Link from "next/link";
+import { Comments } from "components/Comments";
 
 export async function getStaticPaths() {
   const paths = allPosts
@@ -32,7 +32,7 @@ export async function getStaticProps({ params }) {
   const post: Post = allPosts.find(
     (post) => post._raw.flattenedPath === params.slug
   );
-  
+
   return {
     props: {
       post,
@@ -44,9 +44,10 @@ const PostLayout = ({ post }: { post: Post }) => {
   const MDXContent = useMDXComponent(post.body.code);
   const [isOpen, setIsOpen] = useState(false);
   const scroll = useScroll();
-  useMotionValueEvent(scroll.scrollY, "change", (latest) =>
-    setIsOpen(latest > 360)
-  );
+  useMotionValueEvent(scroll.scrollY, "change", (latest) => {
+    setIsOpen(latest > 360);
+  });
+  
 
   const ImageAuthor = () => {
     const style = "font-medium text-base-content opacity-75 text-sm";
@@ -54,7 +55,11 @@ const PostLayout = ({ post }: { post: Post }) => {
       <p className={style}>
         Credit:{" "}
         {post.imageCreditsLink ? (
-          <Link target="_blank" className="link-hover" href={post.imageCreditsLink}>
+          <Link
+            target="_blank"
+            className="link-hover"
+            href={post.imageCreditsLink}
+          >
             {post.imageCredits}
           </Link>
         ) : (
@@ -129,7 +134,7 @@ const PostLayout = ({ post }: { post: Post }) => {
             <div className="max-w-prose mx-auto">
               <MDXContent components={Components} />
             </div>
-            {post.allowComments ? <Comments className="pt-16" /> : null}
+            {post.allowComments ? <Comments /> : null}
           </MotionWrapper>
         </StaggerWrapper>
       </article>

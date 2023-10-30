@@ -1,24 +1,20 @@
-import React, { useEffect, useState } from "react";
-import Head from 'next/head'
+import React, { useEffect } from "react";
+import Head from "next/head";
 import { FaMoon, FaSun } from "react-icons/fa";
 import colors from "../tailwind.config";
+import { useTheme } from "utils/useTheme";
+
+export const ThemeContext = React.createContext(undefined)
 
 export default function ThemeWrapper({ children }) {
-  const [theme, settheme] = useState<"sivert_dark" | "sivert_light">(
-    "sivert_dark"
-  );
-  useEffect(() => {
-    const localTheme = localStorage.getItem("theme");
-    if (localTheme) settheme(localTheme as typeof theme);
-    else localStorage.setItem("theme", 'sivert_dark')
-  }, []);
+  const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
-    if (theme)
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+    document.getElementsByTagName('html')[0].setAttribute('data-theme', theme)
+  }, [theme])
+
   return (
-    <>
+    <ThemeContext.Provider value={theme}>
       <Head>
         <meta
           name="theme-color"
@@ -29,18 +25,13 @@ export default function ThemeWrapper({ children }) {
           }
         />
       </Head>
-      <div data-theme={theme} 
-      className={`overflow-y-scroll h-screen scroll-smooth bg-base-200 text-base-content transition-none${theme === 'sivert_dark' ? ' dark' : ''}`}>
         <button
-          onClick={() =>
-            settheme(theme === "sivert_dark" ? "sivert_light" : "sivert_dark")
-          }
+          onClick={toggleTheme}
           className="btn btn-circle btn-ghost fixed bottom-8 right-8"
         >
           {theme === "sivert_dark" ? <FaMoon /> : <FaSun />}
         </button>
         {children}
-      </div>
-    </>
+    </ThemeContext.Provider>
   );
 }
