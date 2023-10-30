@@ -9,11 +9,12 @@ export default function ThemeWrapper({ children }) {
   );
   useEffect(() => {
     const localTheme = localStorage.getItem("theme");
-    if (theme) settheme(localTheme as typeof theme);
+    if (localTheme) settheme(localTheme as typeof theme);
     else localStorage.setItem("theme", 'sivert_dark')
   }, []);
 
   useEffect(() => {
+    if (theme)
     localStorage.setItem("theme", theme);
   }, [theme]);
   return (
