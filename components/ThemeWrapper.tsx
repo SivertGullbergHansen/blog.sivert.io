@@ -30,7 +30,7 @@ export default function ThemeWrapper({ children }) {
         />
       </Head>
       <div data-theme={theme} 
-      className="overflow-y-scroll h-screen scroll-smooth bg-base-200 text-base-content transition-none">
+      className={`overflow-y-scroll h-screen scroll-smooth bg-base-200 text-base-content transition-none${theme === 'sivert_dark' ? ' dark' : ''}`}>
         <button
           onClick={() =>
             settheme(theme === "sivert_dark" ? "sivert_light" : "sivert_dark")
