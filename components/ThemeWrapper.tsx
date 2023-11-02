@@ -10,7 +10,14 @@ export default function ThemeWrapper({ children }) {
   const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
-    document.getElementsByTagName("html")[0].setAttribute("data-theme", theme);
+    if (theme)
+      document
+        .getElementsByTagName("html")[0]
+        .setAttribute("data-theme", theme);
+    else
+      document
+        .getElementsByTagName("html")[0]
+        .setAttribute("data-theme", "sivert_dark");
   }, [theme]);
 
   return (
@@ -19,7 +26,7 @@ export default function ThemeWrapper({ children }) {
         <meta
           name="theme-color"
           content={
-            theme === "sivert_dark"
+            theme === "sivert_dark" || theme === null
               ? colors.daisyui.themes[0].sivert_dark["base-100"]
               : colors.daisyui.themes[0].sivert_light["base-100"]
           }
