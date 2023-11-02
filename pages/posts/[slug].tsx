@@ -47,7 +47,6 @@ const PostLayout = ({ post }: { post: Post }) => {
   useMotionValueEvent(scroll.scrollY, "change", (latest) => {
     setIsOpen(latest > 360);
   });
-  
 
   const ImageAuthor = () => {
     const style = "font-medium text-base-content opacity-75 text-sm";
@@ -87,7 +86,7 @@ const PostLayout = ({ post }: { post: Post }) => {
         }}
         transition={transition}
       >
-        <div className="w-full max-w-[55rem] flex justify-end">
+        <div className="w-full max-w-[65rem] flex justify-end">
           <button
             onClick={() => {
               if (window !== undefined) {
@@ -123,7 +122,7 @@ const PostLayout = ({ post }: { post: Post }) => {
           )}
           <MotionWrapper
             variants={ArticleContentVariant}
-            className="max-w-prose prose-h1:mb-4 mx-auto px-4 sm:px-0"
+            className="max-w-prose prose-h1:mb-4 mx-auto px-4 lg:px-0"
           >
             <h1 className="not-prose text- text-[2.8em] leading-none font-bold">
               {post.title}

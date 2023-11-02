@@ -5,23 +5,26 @@ import "../styles/pretty-code.css";
 
 import { Header } from "../components/Header";
 import { AnimatePresence } from "framer-motion";
-import { Roboto, Noto_Color_Emoji, JetBrains_Mono } from "next/font/google";
+import { DM_Sans, Noto_Color_Emoji, JetBrains_Mono } from "next/font/google";
 import { useEffect, useState } from "react";
 import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en.json";
 import ThemeWrapper from "components/ThemeWrapper";
 
-const roboto = Roboto({
+const mainFont = DM_Sans({
   subsets: ["latin"],
-  weight: ["100", "300", "400", "500", "700", "900"],
+  weight: ["400", "500", "700"],
 });
 
 const emoji = Noto_Color_Emoji({
   subsets: ["emoji"],
   weight: "400",
+  style: "normal",
+  display: "swap",
+  adjustFontFallback: false,
 });
 
-const mono = JetBrains_Mono({subsets: ['latin']})
+const mono = JetBrains_Mono({ subsets: ["latin"] });
 
 TimeAgo.addLocale(en);
 
@@ -56,10 +59,10 @@ export default function MyApp({ Component, pageProps, router }) {
 
       <style jsx global>{`
         html {
-          font-family: ${roboto.style.fontFamily};
+          font-family: ${mainFont.style.fontFamily};
         }
         span {
-          font-family: ${emoji.style.fontFamily}, ${roboto.style.fontFamily};
+          font-family: ${emoji.style.fontFamily}, ${mainFont.style.fontFamily};
         }
       `}</style>
 
