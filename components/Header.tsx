@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { allPosts } from "contentlayer/generated";
 import { useRouter } from "next/router";
 import { IoLogoGithub } from "react-icons/io5";
+import { transition } from "config/animations";
 
 export function Header({
   headerPadding,
@@ -46,6 +47,7 @@ export function Header({
               ? "pointer-events-auto opacity-100 translate-y-0"
               : "pointer-events-none opacity-0 -translate-y-4"
           }`}
+          style={{ transition: "opacity ease .1s, transform ease .1s" }}
         >
           {allTags.map((tag) => (
             <Link
