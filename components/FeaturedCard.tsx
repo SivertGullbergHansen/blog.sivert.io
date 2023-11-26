@@ -15,7 +15,7 @@ export async function getStaticProps() {
 
 export default function FeaturedCard({
   post,
-  className = '',
+  className = "",
 }: {
   post: Post;
   className?: string;
@@ -23,16 +23,20 @@ export default function FeaturedCard({
   return (
     <motion.div
       variants={ArticleCardVariant}
-      className={`md:grid flex flex-col md:grid-cols-[2.13fr_1fr] w-full gap-4 md:gap-12 ${className}`}
+      className={`md:grid flex flex-col items-start justify-center md:grid-cols-[2.13fr_1fr] w-full gap-4 md:gap-12 ${className}`}
     >
       {post.image && (
-        <Link scroll={false} href={post.url} className="md:max-h-[420px] sm:max-h-72 max-h-52 flex">
+        <Link
+          scroll={false}
+          href={post.url}
+          className="md:max-h-[420px] sm:max-h-72 max-h-52 flex"
+        >
           <div className="rounded-2xl border-2 p-1 border-base-300 flex">
             <ImageWithFallback
               quality={100}
               width={1200}
               heigth={512}
-              alt={post.imageAlt || 'A placeholder image'}
+              alt={post.imageAlt || "A placeholder image"}
               className="object-cover rounded-xl"
               imageName={post.image}
             />
