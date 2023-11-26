@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "npm run icons & next dev",
     "placeholders": "node generatePlaceholders.mjs",
-    "build": "npm run placeholders & next build",
-    "start": "next start"
+    "build": "npm run placeholders & npm run icons & next build",
+    "start": "next start",
+    "icons": "node generateIcons.mjs"
   },
   "dependencies": {
     "@giscus/react": "^2.3.0",
@@ -34,7 +35,8 @@
     "remark-toc": "^8.0.1",
     "sass": "^1.58.3",
     "sharp": "^0.31.3",
-    "shiki": "^0.14.5"
+    "shiki": "^0.14.5",
+    "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.9",

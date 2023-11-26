@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ArticleCardVariant } from "config/animations";
 import { ImageWithFallback } from "./ImageWithFallback";
 import ReactTimeAgo from "react-time-ago";
+import { replaceEmojisInText } from "utils/emojis";
 
 export async function getStaticProps() {
   const posts: Post[] = allPosts.sort((a, b) => {
@@ -32,15 +33,19 @@ export default function ArticleCard({
               quality={100}
               width={640}
               height={640}
-              alt={post.imageAlt || 'A placeholder image'}
+              alt={post.imageAlt || "A placeholder image"}
               className="object-cover rounded-xl w-full"
               imageName={post.image}
             />
           </div>
         )}
         <div className="p-4 flex flex-col gap-1">
-          <h2 className="text-xl font-semibold">{post.title}</h2>
-          <p className="line-clamp-2">{post.description}</p>
+          <h2 className="text-xl font-semibold">
+            {replaceEmojisInText(post.title)}
+          </h2>
+          <p className="line-clamp-2">
+            {replaceEmojisInText(post.description)}
+          </p>
           <ReactTimeAgo
             className="text-sm text-primary"
             date={Date.parse(post.date)}

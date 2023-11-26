@@ -16,6 +16,7 @@ import { FaArrowUp } from "react-icons/fa";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Link from "next/link";
 import { Comments } from "components/Comments";
+import { replaceEmojisInText } from "utils/emojis";
 
 export async function getStaticPaths() {
   const paths = allPosts
@@ -125,7 +126,7 @@ const PostLayout = ({ post }: { post: Post }) => {
             className="max-w-prose prose-h1:mb-4 mx-auto px-4 lg:px-0"
           >
             <h1 className="not-prose text- text-[2.8em] leading-none font-bold">
-              {post.title}
+              {replaceEmojisInText(post.title)}
             </h1>
             <time dateTime={post.date}>
               {format(parseISO(post.date), "LLLL d, yyyy")}

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ArticleCardVariant } from "config/animations";
 import { ImageWithFallback } from "./ImageWithFallback";
 import ReactTimeAgo from "react-time-ago";
+import { replaceEmojisInText } from "utils/emojis";
 
 export async function getStaticProps() {
   const posts: Post[] = allPosts.sort((a, b) => {
@@ -48,8 +49,12 @@ export default function FeaturedCard({
         href={post.url}
         className="flex flex-col gap-1 break-word hyphens-auto"
       >
-        <h1 className="text-3xl sm:text-5xl font-bold">{post.title}</h1>
-        <p className="line-clamp-2  ">{post.description}</p>
+        <h1 className="text-3xl sm:text-5xl font-bold">
+          {replaceEmojisInText(post.title)}
+        </h1>
+        <p className="line-clamp-2  ">
+          {replaceEmojisInText(post.description)}
+        </p>
         <ReactTimeAgo
           className="text-sm text-primary"
           date={Date.parse(post.date)}
