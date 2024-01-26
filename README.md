@@ -1,6 +1,6 @@
 <div align=center>
 <h1><a href='https://blog.sivert.io'>blog.sivert.io</a></h1>
-<img src='docs/screenshot.webp' />
+<img src='docs/image.png' />
 </div>
 
 <br />
